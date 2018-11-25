@@ -21,10 +21,19 @@ function getCodNumber(min, max) {
 // creazion funzione per generare numeri random
 
 function getRandomLetter () {
-  
+
   var lettere = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
 
+  var codPlayer = '';
+
   var codPlayer = lettere.charAt(Math.floor(Math.random() * lettere.length));
+
+  for (var i = 0; i < 3; i++){
+    
+    codice += numeroRandom(1,9);
+
+  }
+
 
   return codPlayer;
 }
@@ -34,7 +43,7 @@ function getRandomLetter () {
 
  var databasePlayers = [];
 
- var palyer = {
+ var player = {
 
    'codplayer': '',
    'puntiFatti': '',
