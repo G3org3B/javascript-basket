@@ -20,34 +20,63 @@ function getCodNumber(min, max) {
 
 // creazion funzione per generare numeri random
 
-function getRandomLetter () {
-
-  var lettere = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-
+function genCodPlayer() {
   var codPlayer = '';
+  var lettere = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var numeri = "0123456789";
 
-  var codPlayer = lettere.charAt(Math.floor(Math.random() * lettere.length));
+
+  for (var i = 0; i < 3; i++) {
+
+    codPlayer += lettere.charAt(Math.floor(Math.random() * lettere.length));
+    console.log(codPlayer);
+  }
 
   for (var i = 0; i < 3; i++){
-    
-    codice += numeroRandom(1,9);
 
+    codPlayer += numeri.charAt(Math.floor(Math.random() * numeri.length));
+    console.log(codPlayer);
   }
 
 
   return codPlayer;
+  console.log(codPlayer);
+
 }
 
 
 // creazione Array DATABASE PLAYER CON LE RELATIVE CHIAVI
 
- var databasePlayers = [];
+ var dataBasePlayers = [];
 
- var player = {
+ for (var i = 0; i < 100; i++) {
+   var nome = genCodPlayer();
+   var puntiFatti = getCodNumber(0 , 60);
+   var rimbalzi = getCodNumber(0 , 35);
+   var falli = getCodNumber(0 , 25);
+   var puntiDaDue = getCodNumber(0 , 100);
+   var puntiDaTre = getCodNumber(0 , 100);
 
-   'codplayer': '',
-   'puntiFatti': '',
-   'rimbalziFatti': '',
-   'falli': '',
+   dataBasePlayers.push({puntiFatti:puntiFatti,rimbalzi:rimbalzi,falli:falli,nome:genCodPlayer()});
+
+}
+console.log(dataBasePlayers);
+
+var codicePlayerInserito = prompt('Inserire utente: ')
+
+for (var i = 0; i < dataBasePlayers.length; i++) {
+
+  var codicePlayer = dataBasePlayers[i];
+  console.log(dataBasePlayers.nome);
+
+
+  if (codicePlayerInserito == codicePlayer.nome) {
+
+    for (var key in codicePlayer) {
+      document.writeln(key + ';' + codicePlayer[key] + '<br>');
+
+    }
 
   }
+
+}
