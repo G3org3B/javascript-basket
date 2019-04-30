@@ -18,7 +18,7 @@ function getCodNumber(min, max) {
 
 }
 
-// creazion funzione per generare numeri random
+// creazion funzione per generare Giocatori casuali
 
 function genCodPlayer() {
   var codPlayer = '';
